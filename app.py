@@ -290,19 +290,51 @@ students, clubs, regs, events, attendance = (data[k].copy() for k in
 segments, model_meta = train_models(students, clubs, regs)
 
 with st.sidebar:
-    st.image(str(APP_DIR / "assets" / "aurelia_university_logo.png"), use_container_width=True)
-    st.markdown('<div class="brand-name">ClubConnect AI</div><div class="brand-sub">CAMPUS COMMUNITY PLATFORM</div>', unsafe_allow_html=True)
+      # Display university logo safely
+    logo_path = APP_DIR / "assets" / "aurelia_university_logo.png"
+
+    if logo_path.exists():
+        st.image(
+            str(logo_path),
+            use_container_width=True
+        )
+    else:
+        st.markdown("🎓 **AURELIA UNIVERSITY**")
+
+    st.markdown(
+        '<div class="brand-name">ClubConnect AI</div>'
+        '<div class="brand-sub">CAMPUS COMMUNITY PLATFORM</div>',
+        unsafe_allow_html=True
+    )
+
     st.caption("CAMPUS COMMUNITY PLATFORM")
-    page = st.radio("NAVIGATION", ["Overview", "Explore Clubs", "Students", "Events & Sessions",
-                                   "Engagement Analytics", "ML Lab", "About & Help"],
-                    label_visibility="visible")
+
+    page = st.radio(
+        "NAVIGATION",
+        [
+            "Overview",
+            "Explore Clubs",
+            "Students",
+            "Events & Sessions",
+            "Engagement Analytics",
+            "ML Lab",
+            "About & Help"
+        ],
+        label_visibility="visible"
+    )
+
     st.markdown("---")
     st.markdown("**Your campus, connected.**")
     st.caption("Demo environment • Synthetic sample data")
     st.markdown("---")
-    st.markdown('<div class="small-muted">Made for student communities<br>ClubConnect AI · v1.0.0</div>',
-                unsafe_allow_html=True)
 
+    st.markdown(
+        '<div class="small-muted">Made for student communities<br>'
+        'ClubConnect AI · v1.0.0</div>',
+        unsafe_allow_html=True
+    )
+
+    
 # ---------- Pages ----------
 if page == "Overview":
     st.markdown('<div class="topline"><div><div class="eyebrow">AURELIA UNIVERSITY · CAMPUS LIFE</div><h1>Community Overview</h1><p style="margin:0">A little more connected, a little more involved.</p></div><div class="hero-chip">✦ Welcome to campus life</div></div>', unsafe_allow_html=True)
