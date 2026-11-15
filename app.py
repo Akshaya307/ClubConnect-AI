@@ -290,8 +290,7 @@ students, clubs, regs, events, attendance = (data[k].copy() for k in
 segments, model_meta = train_models(students, clubs, regs)
 
 with st.sidebar:
-    # Display university logo
-logo_path = APP_DIR / "aurelia_university_logo.svg"
+   st.image(str(APP_DIR / "assets" / "aurelia_university_logo.png"), use_container_width=True)
 
 if logo_path.exists():
     logo_svg = logo_path.read_text(encoding="utf-8")
