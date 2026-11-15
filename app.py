@@ -290,11 +290,7 @@ students, clubs, regs, events, attendance = (data[k].copy() for k in
 segments, model_meta = train_models(students, clubs, regs)
 
 with st.sidebar:
-   st.image(str(APP_DIR / "assets" / "aurelia_university_logo.png"), use_container_width=True)
-
-if logo_path.exists():
-    logo_svg = logo_path.read_text(encoding="utf-8")
-    st.image(logo_svg, width=180)
+    st.image(str(APP_DIR / "assets" / "aurelia_university_logo.png"), use_container_width=True)
     st.markdown('<div class="brand-name">ClubConnect AI</div><div class="brand-sub">CAMPUS COMMUNITY PLATFORM</div>', unsafe_allow_html=True)
     st.caption("CAMPUS COMMUNITY PLATFORM")
     page = st.radio("NAVIGATION", ["Overview", "Explore Clubs", "Students", "Events & Sessions",
